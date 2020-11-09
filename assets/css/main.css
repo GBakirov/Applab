@@ -2,11 +2,14 @@
 /* 2. General styles */
 /* 3. Container */
 /* 4. Site header */
-
+/* 5. Site Main section */
+/*  . Site footer */
 :root{
   --main-title-color-:  #242f51;
   --main-text-color-: #616368;
   --main-button-bg-:  #2500f9;
+  --footer-bgc-: #09142e;
+  --icon-color-: #273043;
 }
 
 /* General styles */
@@ -85,7 +88,40 @@ img{
 .link{
   text-decoration: none;
 }
-
+/* ScrollBar */
+::-webkit-scrollbar{
+  width: 3px;
+}
+::-webkit-scrollbar-track{
+  background: var(--main-text-color-);
+  box-shadow: 0 0 2px rgba(0,0,0, .2) inset; 
+}
+::-webkit-scrollbar-thumb{
+  border: 3px solid rgb(254, 170, 37);
+}
+/* --------------------------------------------------------------------- */
+/* toUp */
+.toUp{
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+}
+.toUp .fas{
+  color: var(--main-button-bg-);
+  font-size: 60px;
+  animation: toUp 1s linear infinite forwards;
+    -webkit-animation: toUp 1s linear infinite forwards;
+    -o-animation: toUp 1s linear infinite forwards;
+    -moz-animation: toUp 1s linear infinite forwards;
+}
+.toUp:focus{
+  box-shadow: none;
+}
+.toUp-active{
+  display: block;
+}
+/* -------------------------------------------------- */ 
 
 /* Site header */
 .site-header{
@@ -94,7 +130,7 @@ img{
               url("../img/header/Bg-img-3.png") no-repeat center / contain;
   background-size:  1300px 500px, 1600px 150px, 400px 350px;
   background-position: center center , center bottom, left bottom;
-  height: 100vh;
+  height: 730px;
   padding: 40px; 
 }
 /* Site-header__top */
@@ -312,6 +348,68 @@ img{
 
 /* ---------------------------------------------------------------------------- */
 
+/* Site-main */
+.site-main{
+  display: flex;
+  flex-grow: 1;
+}
+
+/* Footer */
+.site-footer{
+  background-color: var(--footer-bgc-);
+}
+.foot-blog{
+  margin-bottom: 30px;
+}
+.site-footer_main{
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 100px 15px;
+  text-align: center;
+}
+.footer__list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer__item{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.footer__item:not(:last-child){
+  margin-right: 20px;
+}
+.footer__link{
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+.footer__link:hover{
+  color: var(--main-text-color-);
+}
+.fab{
+  font-size: 31px;
+  cursor: pointer;
+  color: var(--icon-color-);
+  transition: color 0.3s ease;
+}
+.fab:not(:last-child){
+  margin-right: 20px;
+}
+.fab:hover{
+  color: #fff;
+}
+.footer__text{
+  color: #ffffff;
+  opacity: 0.21;
+}
+.author a{
+  text-decoration: none;
+  color: #fff;
+}
+/* ---------------------------------------------------------------------------- */
+
 /* Media Query */
 @media (max-width: 1030px){
   .site-header__main-left{
@@ -477,6 +575,10 @@ img{
   .site-header__main-left img{
     width: 40%;
   }
+  .footer__list{
+    flex-direction: column;
+    text-align: left;
+  }
 }
 @media (max-width: 400px){
   .site-header{
@@ -595,6 +697,14 @@ img{
   }
   100%{
     transform: rotate(0);
+  }
+}
+@keyframes toUp{
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(-20px);
   }
 }
 

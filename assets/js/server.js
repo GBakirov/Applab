@@ -1,6 +1,8 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".site-header__top-menu-list")
 const menuActiveLinks = document.querySelectorAll('.site-header__top-link');
+const toUp = document.querySelector('.toUp');
+
 
 menuToggle.addEventListener('click', function(){
   menuToggle.classList.toggle('active');
@@ -16,5 +18,13 @@ function changeActiveLink(){
 
 menuActiveLinks.forEach(link => link.addEventListener('click', changeActiveLink));
 
+window.addEventListener('scroll', ()=>{
+  const scrol = window.scrollY;
+  if(scrol > 70){
+    toUp.classList.add('toUp-active')
+  }else{
+    toUp.classList.remove('toUp-active')
+  }
+})
 
 
