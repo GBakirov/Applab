@@ -91,14 +91,14 @@ img{
 }
 /* ScrollBar */
 ::-webkit-scrollbar{
-  width: 3px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track{
   background: var(--main-text-color-);
   box-shadow: 0 0 2px rgba(0,0,0, .2) inset; 
 }
 ::-webkit-scrollbar-thumb{
-  border: 3px solid rgb(254, 170, 37);
+  border: 6px solid rgb(254, 170, 37);
 }
 /* --------------------------------------------------------------------- */
 /* toUp */
@@ -109,7 +109,7 @@ img{
   right: 40px;
 }
 .toUp .fas{
-  color: var(--main-button-bg-);
+  color: rgb(254, 170, 37);
   font-size: 60px;
   animation: toUp 1s linear infinite forwards;
     -webkit-animation: toUp 1s linear infinite forwards;
@@ -127,10 +127,9 @@ img{
 /* Site header */
 .site-header{
   background: url("../img/header/Bg-img-2.png") no-repeat  center / contain,
-              url("../img/header/Bg-img.png") no-repeat center / contain,
-              url("../img/header/Bg-img-3.png") no-repeat center / contain;
-  background-size:  1300px 500px, 1600px 150px, 400px 350px;
-  background-position: center center , center bottom, left bottom;
+              url("../img/header/Bg-img.png") no-repeat center / contain;
+  background-size:  1300px 500px, 1600px 150px;
+  background-position: center center , center bottom;
   height: 730px;
   padding: 40px; 
 }
@@ -184,17 +183,18 @@ img{
   line-height: 44px;
   font-weight: 700;
   padding: 8px 41px;
-  border: 0;
+  border: 1px solid var(--main-button-bg-);
   border-radius: 29px;
   background-color: var(--main-button-bg-);
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease,
-                color 0.3s ease;
+                color 0.3s ease, border 0.3s ease;
 }
 .btn:hover{
   background-color: #fff;
   color: var(--main-button-bg-);
+  border: 1px solid var(--main-button-bg-);
 }
 
 /* Menu toggler */
@@ -431,14 +431,37 @@ img{
   align-items: center;
   margin-bottom: 60px;
 }
-.features-img__bg{
+.features-img__bg,
+.app-features-img-bg{
   width: 88px;
   height: 88px;
   border-radius: 50%;
   justify-content: center;
-  align-items: center; 
- 
+  align-items: center;
 }
+.app-features-img-bg{
+  margin-left: 35%;
+}
+.app-features:nth-child(1) .app-features-img-bg{
+  background-color: #ffecef;
+}
+.app-features:nth-child(2) .app-features-img-bg{
+  background-color: #eaf9ff;
+}
+.app-features:nth-child(3) .app-features-img-bg{
+  background-color: #fff6d3;
+}
+.app-features:nth-child(4) .app-features-img-bg{
+  background-color: #e4ffee;
+}
+.app-features:nth-child(5) .app-features-img-bg{
+  background-color: #f4f4ff;
+}
+.app-features:nth-child(6) .app-features-img-bg{
+  background-color: #fdeee4;
+}
+
+
 .features:nth-child(3) .features-img__bg,
 .features-main:nth-child(1) .features-img__bg{
   background-color: #ffecef;
@@ -451,10 +474,14 @@ img{
 .features-main:nth-child(3) .features-img__bg{
   background-color: #e4ffee;
 }
-.features-img{
+.features-img,
+.app-features-img{
   z-index: 1;
   margin-top: -1px;
   margin-left: 4px;
+}
+.app-features-img{
+  margin-top: 13px;
 }
 .features-right{
   width: 70%;
@@ -463,6 +490,7 @@ img{
   cursor: pointer;
   font-size: 20px;
   line-height: 58px;
+  margin-bottom: 0;
 }
 .features:nth-child(3) .features-right .features-title,
 .features-main:nth-child(1) .features-right .features-title{
@@ -517,6 +545,78 @@ img{
   margin-top: 42px;
   padding: 8px 20px;
 }
+/* -------------------- -------------------------------------------------------------------------------- */
+.divider{
+  margin: 40px 0;
+}
+/* Stage-2 */
+.middle{
+  padding: 0 60px;
+}
+.stage-2__top{
+  text-align: center;
+}
+.stage-2__main{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+.app-features{
+  width: 30%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.app-features .title{
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.ultimate_features{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ultimate_features-left{
+  width: 55%;
+}
+
+.app-features__blog{
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+} 
+.ultimate_features--app{
+  width: 45%;
+  text-align: left;
+}
+.ultimate_features--app .app-features-img-bg{
+  margin-left: 0;
+}
+.ultimate_features--app .app-features-img{
+  margin-left: 15px;
+}
+.ultimate_features-right{
+  position: relative;
+  width: 45%;
+}
+.ultimate_features-right::before{
+  content: '';
+  width: 400px;
+    height: 500px;
+  background: url('../img/Main/bg-img-2.png') no-repeat center center / contain;
+  position: absolute;
+  top: -50px;
+  left: 30px;
+  z-index: -1;
+}
+.ultimate_features-right-img{
+  width: 100%;
+}
+/* -------------------- -------------------------------------------------------------------------------- */
+
 /* Footer */
 .site-footer{
   background-color: var(--footer-bgc-);
@@ -670,6 +770,10 @@ img{
   .features-main{
     display: flex;
   }
+  .ultimate_features-right::before{
+    width: 300px;
+    height: 400px;
+  }
 }
 @media (max-width: 874px){
   .right,.title,.text,.left{
@@ -719,6 +823,27 @@ img{
     text-align: center;
     margin-bottom: 10px;
   }
+  .ultimate_features-right{
+    order: -1;
+    width: 100%;
+    text-align: center;
+  }
+  .ultimate_features-right::before{
+    display: none;
+  }
+  .ultimate_features-right-img{
+    width: 80%;
+  }
+}
+@media (max-width: 865px){
+  .app-features{
+    width: 45%;
+  }
+}
+@media (max-width: 800px){
+  .app-features-img-bg{
+    margin-left: 30%;
+  }
 }
 @media (max-width: 666px){
   .site-header__main-left {
@@ -740,6 +865,15 @@ img{
   }
   .bottom-btn{
     margin-right: 0 !important;
+  }
+  .app-features{
+    width: 100%;
+  }
+  .app-features-img-bg{
+    margin-left: 38%;
+  }
+  .ultimate_features--app{
+    width: 45%;
   }
 } 
 @media (max-width: 578px){
@@ -790,6 +924,11 @@ img{
     margin-left: 20%;
   }
 }
+@media (max-width: 477px){
+  .ultimate_features--app{
+    width: 100%;
+  }
+}
 @media (max-width: 430px){
   .btn{
     font-size: 14px;
@@ -807,6 +946,9 @@ img{
   .footer__list{
     flex-direction: column;
     text-align: left;
+  }
+  .middle{
+    padding: 0;
   }
 }
 @media (max-width: 400px){
