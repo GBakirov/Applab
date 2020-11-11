@@ -10,6 +10,7 @@
   --main-button-bg-:  #2500f9;
   --footer-bgc-: #09142e;
   --icon-color-: #273043;
+  --card-text-color-: #999ca5;
 }
 
 /* General styles */
@@ -98,7 +99,7 @@ img{
   box-shadow: 0 0 2px rgba(0,0,0, .2) inset; 
 }
 ::-webkit-scrollbar-thumb{
-  border: 6px solid rgb(254, 170, 37);
+  border: 6px solid var(--main-button-bg-);
 }
 /* --------------------------------------------------------------------- */
 /* toUp */
@@ -109,7 +110,7 @@ img{
   right: 40px;
 }
 .toUp .fas{
-  color: rgb(254, 170, 37);
+  color: var(--main-button-bg-);
   font-size: 60px;
   animation: toUp 1s linear infinite forwards;
     -webkit-animation: toUp 1s linear infinite forwards;
@@ -191,10 +192,16 @@ img{
   transition: background-color 0.3s ease,
                 color 0.3s ease, border 0.3s ease;
 }
-.btn:hover{
+.btn:hover, .btn--close{
   background-color: #fff;
   color: var(--main-button-bg-);
   border: 1px solid var(--main-button-bg-);
+}
+.btn--close{
+  border: 1px solid transparent !important;
+}
+.select{
+  display: none !important;
 }
 
 /* Menu toggler */
@@ -616,6 +623,77 @@ img{
   width: 100%;
 }
 /* -------------------- -------------------------------------------------------------------------------- */
+/* Pricing */
+.pricing{
+  text-align: center;
+  padding: 0 15%;
+}
+.pricing-buttons{
+  margin: 50px auto;
+  width: 358px;
+  border: 2px solid #ebebeb;
+  border-radius: 30px;
+  padding: 2px;
+}
+.pricing-buttons .btn{
+  margin-right: 0;
+}
+.Monthly-card, .Annualy-card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.pricing-card{
+  width: 45%;
+  border-radius: 9px;
+  border: 2px solid #ebebeb;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  
+}
+.pricing-card:hover{
+  border: 2px solid transparent;
+  box-shadow: 4px 55px 62px rgba(144, 163, 177, 0.18);
+}
+
+.card-header,
+.card-main{
+  padding: 22px;
+}
+.card-header{
+  background: linear-gradient(0, #f4f7f9, #fff);
+}
+.free-number{
+  font-size:  18px;
+  line-height: 28px;
+  margin-bottom: 30px;
+  color: var(--card-text-color-) !important;
+}
+.card-header .free-number .title{
+  font-size: 60px;
+  line-height: 58px;
+}
+.card-header .title{
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+.card-header .text,
+.card-main .text{
+  color: var(--card-text-color-) !important;
+}
+.card-main .btn{
+  margin: 20px 0;
+  font-size: 14px;
+  padding: 0;
+}
+.card-main .btn-active{
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  color: var(--main-button-bg-) !important;
+}
 
 /* Footer */
 .site-footer{
@@ -774,6 +852,9 @@ img{
     width: 300px;
     height: 400px;
   }
+  .pricing{
+    padding: 0;
+  }
 }
 @media (max-width: 874px){
   .right,.title,.text,.left{
@@ -844,6 +925,10 @@ img{
   .app-features-img-bg{
     margin-left: 30%;
   }
+  .pricing-card{
+    width: 100%;
+    margin: 20px 0;
+  }
 }
 @media (max-width: 666px){
   .site-header__main-left {
@@ -880,6 +965,9 @@ img{
   #menu-toggle{
     top: 40px;
   }
+  .middle{
+    padding: 0;
+  }
   .btn{
     padding: 0;
     width: 120px;
@@ -909,6 +997,9 @@ img{
   .site__main-section-stage1-main-title{
     font-size: 26px;
     line-height: 32px;
+  }
+  .pricing-buttons{
+    width: 255px;
   }
 }
 @media (max-width: 515px){
@@ -947,9 +1038,7 @@ img{
     flex-direction: column;
     text-align: left;
   }
-  .middle{
-    padding: 0;
-  }
+  
 }
 @media (max-width: 400px){
   .site-header{
