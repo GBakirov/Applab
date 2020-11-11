@@ -11,6 +11,7 @@
   --footer-bgc-: #09142e;
   --icon-color-: #273043;
   --card-text-color-: #999ca5;
+  --main-second-text-color- : #24282a;
 }
 
 /* General styles */
@@ -70,6 +71,10 @@ img{
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+.divider{
+  background-color: #e5e6e5;
+  opacity: 0.4;
+}
 /* ------------------------------------------------------------------------- */
 
 /* Container */
@@ -123,8 +128,65 @@ img{
 .toUp-active{
   display: block;
 }
-/* -------------------------------------------------- */ 
+/* -------------------------------------------------- */
+/* LOADER */
+/**/
 
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  position: fixed;
+  background-color: var(--main-second-text-color-);
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  animation: fadeOut 2s 1 forwards;
+  
+
+}
+.loading{
+  width: 15%;
+  animation: loading 5s linear infinite;
+}
+.loader-title{
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-end;
+}
+.loader-circle{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  width: 10px;
+  height: 10px;
+  background-color: #c7c5c4;
+  border-radius: 50%;
+}
+.loader-title{
+  font-family: serif;
+  font-size: 48px;
+  line-height: 70px;
+  font-weight: 400;
+  color: #c7c5c4;
+}
+.loader-circle:nth-child(1){
+  animation: fadeIn 0.5s linear infinite;
+  animation-delay: 0.1s;
+}
+.loader-circle:nth-child(2){
+  animation: fadeIn 0.5s linear infinite;
+  animation-delay: 0.2s;
+}
+.loader-circle:nth-child(3){
+  animation: fadeIn 0.5s linear infinite;
+  animation-delay: 0.3s;
+}
+/*-------------------------------------------------*/
+
+
+/* -------------------------------------------------- */
 /* Site header */
 .site-header{
   background: url("../img/header/Bg-img-2.png") no-repeat  center / contain,
@@ -300,14 +362,19 @@ img{
   width: 60%;
   margin-top: 60px;
   margin-right: auto;
+  opacity: 0;
+  animation: fadeUp 1s ease 1 forwards;
+  animation-delay: 1.2s;
 }
 .site-header__main-left{
   width: 25%;
   margin-right: 15px;
-  animation: header-img-animation 3s linear infinite forwards;
-  -webkit-animation: header-img-animation 3s linear infinite forwards;
-  -o-animation: header-img-animation 3s linear infinite forwards;
-  -moz-animation: header-img-animation 3s linear infinite forwards;
+  opacity: 0;
+  animation: scale 1s ease 1 forwards, header-img-animation 3s linear infinite forwards;
+  -webkit-animation: scale 1s ease 1 forwards, header-img-animation 3s linear infinite forwards;
+  -o-animation: scale 1s ease 1 forwards,  header-img-animation 3s linear infinite forwards;
+  -moz-animation: scale 1s ease 1 forwards, header-img-animation 3s linear infinite forwards;
+  animation-delay: 1.2s;
 }
 .site-header__main-right__top{
   width: 352px;
@@ -843,6 +910,10 @@ img{
 /* FAQ */
 .FAQ{
   padding: 0 50px;
+  text-align: center;
+}
+.FAQ_accordion{
+  text-align: left;
 }
 .accordion-item{
   background-color: #f5f7fa;
@@ -882,6 +953,34 @@ img{
   display: block;
 }
 /* ------------------------------------------------------------------------ */
+/* Download */
+.download{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.download-right,
+.download-left{
+  width: 50%;
+}
+.download-imgs{
+  margin-top: 20px;
+  display: flex;
+}
+.playmarket{
+  margin-right: 20px;
+}
+.playmarket,
+.appstore{
+  display: block;
+  transition: transform 0.3s ease;
+}
+.playmarket:hover,
+.appstore:hover{
+  transform: scale(1.1); 
+}
+/* ------------------------------------------------------------------------ */ 
 /* Footer */
 .site-footer{
   background-color: var(--footer-bgc-);
@@ -1447,3 +1546,44 @@ img{
     transform: opacity linear;
   }
 }
+@keyframes loading{
+  
+  100%{
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+} 
+@keyframes fadeOut{
+  100%{
+    visibility: hidden;
+    opacity: 0;
+
+  }
+}
+@keyframes fadeUp{
+  0%{
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
+@keyframes scale{
+  0%{
+    opacity: 0;
+    transform: scale(2);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+} 

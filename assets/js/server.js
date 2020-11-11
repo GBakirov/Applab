@@ -1,3 +1,4 @@
+// HTML elements
 const menuToggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".site-header__top-menu-list")
 const menuActiveLinks = document.querySelectorAll('.site-header__top-link');
@@ -14,8 +15,6 @@ const actionBtn = document.querySelectorAll('.action-button')
 
 
 // Slide show
-
-
 let cardPosition = 0;
 const actionCards = document.getElementsByClassName('attitude-item'); 
 const totalActionCards = actionCards.length;
@@ -58,6 +57,7 @@ function autoPlay(){
 }
 let time = setInterval(autoPlay, 4000)
 // --------------------------------------------------------------------------------
+// Click FUNCTIONS 
 menuToggle.addEventListener('click', function(){
   menuToggle.classList.toggle('active');
   menu.classList.toggle('sitenav--open')
@@ -100,6 +100,8 @@ actionBtn.forEach(a => a.addEventListener('click', changeBtn))
 btn.forEach(b => b.addEventListener('click', changeActiveBtn));
 
 menuActiveLinks.forEach(link => link.addEventListener('click', changeActiveLink));
+// Scroll functions
+
 
 window.addEventListener('scroll', ()=>{
   const scrol = window.scrollY;
@@ -109,5 +111,4 @@ window.addEventListener('scroll', ()=>{
     toUp.classList.remove('toUp-active')
   }
 })
-
 
