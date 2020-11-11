@@ -1088,6 +1088,9 @@ img{
   .menu-toggle{
     display: block;
   }
+  .site-header__top-link{
+    font-size: 30px;
+  }
   .btn{
     order: -1;
   }
