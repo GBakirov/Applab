@@ -10,8 +10,54 @@ const btnClose = document.querySelector('.btn--close')
 const monthlyCard = document.querySelector('.Monthly-card');
 const annualyCard = document.querySelector('.Annualy-card');
 const disable = btnClose.getAttribute('disable');
+const actionBtn = document.querySelectorAll('.action-button') 
 
 
+// Slide show
+
+
+let cardPosition = 0;
+const actionCards = document.getElementsByClassName('attitude-item'); 
+const totalActionCards = actionCards.length;
+const attitudInner = document.getElementsByClassName('attitude--inner');
+const slide = document.getElementsByClassName('attitude-carusel')
+
+
+document.getElementById('actions-next').addEventListener('click', function(){
+  moveToNextCard();
+})
+document.getElementById('actions-prev').addEventListener('click', function(){
+  moveToPrevCard();
+})
+function updateCardPosition(){
+  for (let card of actionCards ){
+    card.classList.remove('card--visibile');
+    card.classList.add('attitude--hidden')
+  }
+  actionCards[cardPosition].classList.add('card--visibile')
+}
+function moveToNextCard(){
+  if(cardPosition === totalActionCards - 1 ){
+    cardPosition = 0;
+  }else{
+    cardPosition ++;
+  }
+  updateCardPosition();
+}
+function moveToPrevCard(){
+  if(cardPosition === 0){
+    cardPosition = totalActionCards - 1;
+  } else {
+    cardPosition--;
+  }
+  updateCardPosition();
+}
+
+function autoPlay(){
+  moveToNextCard();
+}
+let time = setInterval(autoPlay, 4000)
+// --------------------------------------------------------------------------------
 menuToggle.addEventListener('click', function(){
   menuToggle.classList.toggle('active');
   menu.classList.toggle('sitenav--open')
@@ -42,9 +88,14 @@ function changeActiveBtn(){
   annualyCard.classList.toggle('select');
 }
 
+function changeBtn() {
+  actionBtn.forEach(a => a.classList.remove('action--active'));
+  this.classList.add('action--active');
+}
 
 
 
+actionBtn.forEach(a => a.addEventListener('click', changeBtn))
 
 btn.forEach(b => b.addEventListener('click', changeActiveBtn));
 
