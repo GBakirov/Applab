@@ -838,17 +838,50 @@ img{
   background-color: rgb(239, 243, 248) !important;
   
 }
-/*.fa-arrow-circle-left:before,
-.fa-arrow-circle-right:before{
-  background-color: rgb(239, 243, 248);
-  border-radius: 50%;
-}
-.action--active,
-#actions-prev:hover .fa-arrow-left:before,
-#actions-next:hover .fa-arrow-right:before{
-  background-color: var(--main-button-bg-);
-}*/
+
 /* ------------------------------------------------------------------------ */ 
+/* FAQ */
+.FAQ{
+  padding: 0 50px;
+}
+.accordion-item{
+  background-color: #f5f7fa;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+.accordion-link{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fa-plus, .fa-minus{
+  margin-left: 10px;
+  transition: display 0.5s linear;
+}
+.accordion-link .fa-minus{
+  display: none;
+}
+.answer{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s linear;
+}
+
+.accordion-item:target .answer{
+  max-height: 20rem;
+}
+.accordion-item:target .fa-plus{
+  display: none;
+}
+.accordion-item:target .fa-minus{
+  display: block;
+}
+/* ------------------------------------------------------------------------ */
 /* Footer */
 .site-footer{
   background-color: var(--footer-bgc-);
@@ -1094,6 +1127,9 @@ img{
   }
   .person img{
     width: 70%;
+  }
+  .FAQ{
+    padding: 0;
   }
 }
 @media (max-width: 666px){
